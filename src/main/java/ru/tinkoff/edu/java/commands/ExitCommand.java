@@ -10,7 +10,7 @@ public class ExitCommand implements Command{
     }
 
     @Override
-    public String execute() throws InvalidCommandArguments {
+    public String execute() {
         throw new RuntimeException("Exit command called.");
     }
 

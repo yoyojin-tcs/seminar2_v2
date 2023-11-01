@@ -6,7 +6,7 @@ import java.util.UUID;
 
 public class InMemoryTaskStore implements TaskStore {
 
-    private Map<UUID, Task> store = new HashMap<>();
+    private final Map<UUID, Task> store = new HashMap<>();
 
     @Override
     public Task save(Task task) {
