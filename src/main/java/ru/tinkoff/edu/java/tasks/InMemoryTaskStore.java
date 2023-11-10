@@ -1,8 +1,6 @@
 package ru.tinkoff.edu.java.tasks;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.UUID;
+import java.util.*;
 
 public class InMemoryTaskStore implements TaskStore {
 
@@ -16,5 +14,10 @@ public class InMemoryTaskStore implements TaskStore {
     @Override
     public Task getTask(UUID uuid) {
         return store.get(uuid);
+    }
+
+    @Override
+    public Collection<Task> getAllTasks() {
+        return store.values();
     }
 }
