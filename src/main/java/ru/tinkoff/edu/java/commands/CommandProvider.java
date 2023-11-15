@@ -9,6 +9,7 @@ public class CommandProvider {
     private final TaskStore taskStore;
     private final String HELP_MESSAGE = new StringJoiner("- \n", "Following commands are supported:\n", "")
             .add(AddTaskCommand.NAME)
+            .add(ListTasksCommand.NAME)
             .toString();
 
     public CommandProvider(TaskStore taskStore){
@@ -20,6 +21,7 @@ public class CommandProvider {
         if (commandName == null) throw new UnsupportedCommand(commandName);
         return switch (commandName) {
             case AddTaskCommand.NAME -> new AddTaskCommand(args, taskStore);
+            case ListTasksCommand.NAME -> new ListTasksCommand(args, taskStore);
             case ExitCommand.NAME -> new ExitCommand();
             default -> throw new UnsupportedCommand(commandName);
         };
